@@ -1,0 +1,4 @@
+# From http://archive.apache.org/dist/httpd/httpd-2.4.43.tar.bz2.sha256
+sha256  a497652ab3fc81318cdc2a203090a999150d86461acff97c1065dc910fe10f43  httpd-2.4.43.tar.bz2
+# Locally computed
+sha256  47b8c2b6c3309282a99d4a3001575c790fead690cc14734628c4667d2bbffc43  LICENSE
