@@ -52,4 +52,4 @@ feh --bg-center /dahlia/boot-logo.png&
 matchbox-window-manager -use_titlebar no &
 
 
-exec xterm -geometry 80x66+0+0 -name login
+exec /dahlia/pangolin/pangolin_desktop
