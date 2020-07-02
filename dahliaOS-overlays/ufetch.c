@@ -9,32 +9,7 @@ os='Dahila OS'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 shell="$(basename "$SHELL")"
-
-
-## UI DETECTION
-
-if [ -n "${DE}" ]; then
-	ui="${DE}"
-	uitype='DE'
-elif [ -n "${WM}" ]; then
-	ui="${WM}"
-	uitype='WM'
-elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
-	ui="${XDG_CURRENT_DESKTOP}"
-	uitype='DE'
-elif [ -n "${DESKTOP_SESSION}" ]; then
-	ui="${DESKTOP_SESSION}"
-	uitype='DE'
-elif [ -f "${HOME}/.xinitrc" ]; then
-	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
-	uitype='WM'
-elif [ -f "${HOME}/.xsession" ]; then
-	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
-	uitype='WM'
-else
-	ui='unknown'
-	uitype='UI'
-fi
+de='Pangolin'
 
 ## DEFINE COLORS
 
@@ -61,13 +36,12 @@ c0="${reset}${red}"               # first color
 ## OUTPUT
 
 cat <<EOF
-
 ${c0}                                      #%%%,                             ${nc}OS:${ic}${os}${reset}                                
 ${c0}                                   ,%%%%%%%%%                           ${lc}KERNEL:${ic}${kernel}${reset}        
 ${c0}                                 #%%%%%%%%%%%%%*                        ${lc}UPTIME:${ic}${uptime}${reset}         
 ${c0}                   /%%%%%%%%%%%%%%%%%%%%%%%%%%%%%############           ${lc}SHELL:${ic}${shell}${reset}        
 ${c0}                   /%%%%%%%%%%%%%%%%%%%%%%%%%%%##############           ${lc}DE:${ic}${de}${reset}        
-${c0}                   /%%%%%%%%%%%%%%#*        ./###############           ${lc}${uitype}:${ic}${ui}${reset}        
+${c0}                   /%%%%%%%%%%%%%%#*        ./###############                
 ${c0}                   /%%%%%%%%%%/                   ###########                   
 ${c0}                   /%%%%%%%%                        *########                   
 ${c0}                  #%%%%%%%*                           ########,                 
