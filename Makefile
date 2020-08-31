@@ -92,9 +92,9 @@ all:
 .PHONY: all
 
 # Set and export the version string
-export BR2_VERSION := 200804
+export BR2_VERSION := 200830
 # Actual time the release is cut (for reproducible builds)
-BR2_VERSION_EPOCH = 1591045000
+BR2_VERSION_EPOCH = 1598649000
 
 # Save running make version since it's clobbered by the make package
 RUNNING_MAKE_VERSION := $(MAKE_VERSION)
@@ -113,7 +113,13 @@ DATE := $(shell date +%Y%m%d)
 
 # Compute the full local version string so packages can use it as-is
 # Need to export it, so it can be got from environment in children (eg. mconf)
-export BR2_VERSION_FULL := $(BR2_VERSION)$(shell $(TOPDIR)/support/scripts/setlocalversion)
+
+BR2_LOCALVERSION := $(shell $(TOPDIR)/support/scripts/setlocalversion)
+ifeq ($(BR2_LOCALVERSION),)
+export BR2_VERSION_FULL := $(BR2_VERSION)
+else
+export BR2_VERSION_FULL := $(BR2_LOCALVERSION)
+endif
 
 # List of targets and target patterns for which .config doesn't need to be read in
 noconfig_targets := menuconfig nconfig gconfig xconfig config oldconfig randconfig \
@@ -457,12 +463,12 @@ endif
 
 ifneq ($(HOST_DIR),$(BASE_DIR)/host)
 HOST_DIR_SYMLINK = $(BASE_DIR)/host
-$(HOST_DIR_SYMLINK): $(BASE_DIR)
+$(HOST_DIR_SYMLINK): | $(BASE_DIR)
 	ln -snf $(HOST_DIR) $(HOST_DIR_SYMLINK)
 endif
 
 STAGING_DIR_SYMLINK = $(BASE_DIR)/staging
-$(STAGING_DIR_SYMLINK): $(BASE_DIR)
+$(STAGING_DIR_SYMLINK): | $(BASE_DIR)
 	ln -snf $(STAGING_DIR) $(STAGING_DIR_SYMLINK)
 
 # Quotes are needed for spaces and all in the original PATH content.
@@ -695,8 +701,7 @@ LOCALE_NOPURGE = $(call qstrip,$(BR2_ENABLE_LOCALE_WHITELIST))
 # in the whitelist file. If it doesn't, kill it.
 # Finally, specifically for X11, regenerate locale.dir from the whitelist.
 define PURGE_LOCALES
-	rm -f $(LOCALE_WHITELIST)
-	for i in $(LOCALE_NOPURGE) locale-archive; do echo $$i >> $(LOCALE_WHITELIST); done
+	printf '%s\n' $(LOCALE_NOPURGE) locale-archive > $(LOCALE_WHITELIST)
 
 	for dir in $(addprefix $(TARGET_DIR),/usr/share/locale /usr/share/X11/locale /usr/lib/locale); \
 	do \
@@ -757,6 +762,7 @@ ifneq ($(BR2_PACKAGE_GDB),y)
 endif
 ifneq ($(BR2_PACKAGE_BASH),y)
 	rm -rf $(TARGET_DIR)/usr/share/bash-completion
+	rm -rf $(TARGET_DIR)/etc/bash_completion.d
 endif
 ifneq ($(BR2_PACKAGE_ZSH),y)
 	rm -rf $(TARGET_DIR)/usr/share/zsh
@@ -766,6 +772,9 @@ endif
 	rm -rf $(TARGET_DIR)/usr/doc $(TARGET_DIR)/usr/share/doc
 	rm -rf $(TARGET_DIR)/usr/share/gtk-doc
 	rmdir $(TARGET_DIR)/usr/share 2>/dev/null || true
+ifneq ($(BR2_ENABLE_DEBUG):$(BR2_STRIP_strip),y:)
+	rm -rf $(TARGET_DIR)/lib/debug $(TARGET_DIR)/usr/lib/debug
+endif
 	$(STRIP_FIND_CMD) | xargs -0 $(STRIPCMD) 2>/dev/null || true
 	$(STRIP_FIND_SPECIAL_LIBS_CMD) | xargs -0 -r $(STRIPCMD) $(STRIP_STRIP_DEBUG) 2>/dev/null || true
 
@@ -1202,10 +1211,6 @@ print-version:
 check-package:
 	find $(TOPDIR) -type f \( -name '*.mk' -o -name '*.hash' -o -name 'Config.*' \) \
 		-exec ./utils/check-package {} +
-
-.PHONY: .gitlab-ci.yml
-.gitlab-ci.yml: .gitlab-ci.yml.in
-	./support/scripts/generate-gitlab-ci-yml $< > $@
 
 include docs/manual/manual.mk
 -include $(foreach dir,$(BR2_EXTERNAL_DIRS),$(sort $(wildcard $(dir)/docs/*/*.mk)))

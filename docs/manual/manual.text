@@ -168,13 +168,13 @@ List of Examples
 
 ---------------------------------------------------------------------
 
-Buildroot 2020.05 manual generated on 2020-06-01 21:16:51 UTC from
-git revision 6306cf35c5
+Buildroot 2020.08-rc3 manual generated on 2020-08-28 21:12:24 UTC
+from git revision 8679866508
 
 The Buildroot manual is written by the Buildroot developers. It is
 licensed under the GNU General Public License, version 2. Refer to
 the COPYING [http://git.buildroot.org/buildroot/tree/COPYING?id=
-6306cf35c5936184c09fa1f5678c3381e330fe2b] file in the Buildroot
+867986650876b588ea359c9a5cefd7fc892ed076] file in the Buildroot
 sources for the full text of this license.
 
 Copyright © 2004-2020 The Buildroot developers
@@ -4651,7 +4651,7 @@ information is (assuming the package name is libfoo) :
     not saved will appear in the license files field of the manifest
     file for this package.
   * LIBFOO_ACTUAL_SOURCE_TARBALL only applies to packages whose
-    LIBFOO_SITE / LIBTOO_SOURCE pair points to an archive that does
+    LIBFOO_SITE / LIBFOO_SOURCE pair points to an archive that does
     not actually contain source code, but binary code. This a very
     uncommon case, only known to apply to external toolchains which
     come already compiled, although theoretically it might apply to
@@ -5884,7 +5884,7 @@ will automatically download the tarball from this location.
 
 On line 10, we tell Buildroot what options to enable for libfoo.
 
-On line 11, we tell Buildroot the depednencies of libfoo.
+On line 11, we tell Buildroot the dependencies of libfoo.
 
 Finally, on line line 13, we invoke the waf-package macro that
 generates all the Makefile rules that actually allows the package to
@@ -6068,7 +6068,7 @@ The Config.in file of Cargo-based package foo should contain:
 01: config BR2_PACKAGE_FOO
 02:     bool "foo"
 03:     depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-04:     select BR2_PACKAGE_HOST_CARGO
+04:     select BR2_PACKAGE_HOST_RUSTC
 05:     help
 06:       This is a comment that explains what foo is.
 07:
@@ -6092,34 +6092,33 @@ for such a package. Let’s start with an example:
 10: FOO_LICENSE = GPL-3.0+
 11: FOO_LICENSE_FILES = COPYING
 12:
-13: FOO_DEPENDENCIES = host-cargo
+13: FOO_DEPENDENCIES = host-rustc
 14:
 15: FOO_CARGO_ENV = CARGO_HOME=$(HOST_DIR)/share/cargo
-16: FOO_CARGO_MODE = $(if $(BR2_ENABLE_DEBUG),debug,release)
-17:
-18: FOO_BIN_DIR = target/$(RUSTC_TARGET_NAME)/$(FOO_CARGO_MODE)
-19:
-20: FOO_CARGO_OPTS = \
-21:   --$(FOO_CARGO_MODE) \
-22:     --target=$(RUSTC_TARGET_NAME) \
-23:     --manifest-path=$(@D)/Cargo.toml
-24:
-25: define FOO_BUILD_CMDS
-26:     $(TARGET_MAKE_ENV) $(FOO_CARGO_ENV) \
-27:             cargo build $(FOO_CARGO_OPTS)
-28: endef
-29:
-30: define FOO_INSTALL_TARGET_CMDS
-31:     $(INSTALL) -D -m 0755 $(@D)/$(FOO_BIN_DIR)/foo \
-32:             $(TARGET_DIR)/usr/bin/foo
-33: endef
-34:
-35: $(eval $(generic-package))
+16:
+17: FOO_BIN_DIR = target/$(RUSTC_TARGET_NAME)/$(FOO_CARGO_MODE)
+18:
+19: FOO_CARGO_OPTS = \
+20:     $(if $(BR2_ENABLE_DEBUG),,--release) \
+21:     --target=$(RUSTC_TARGET_NAME) \
+22:     --manifest-path=$(@D)/Cargo.toml
+23:
+24: define FOO_BUILD_CMDS
+25:     $(TARGET_MAKE_ENV) $(FOO_CARGO_ENV) \
+26:             cargo build $(FOO_CARGO_OPTS)
+27: endef
+28:
+29: define FOO_INSTALL_TARGET_CMDS
+30:     $(INSTALL) -D -m 0755 $(@D)/$(FOO_BIN_DIR)/foo \
+31:             $(TARGET_DIR)/usr/bin/foo
+32: endef
+33:
+34: $(eval $(generic-package))
 
 The Makefile starts with the definition of the standard variables for
 package declaration (lines 7 to 11).
 
-As seen in line 35, it is based on the generic-package infrastructure
+As seen in line 34, it is based on the generic-package infrastructure
 . So, it defines the variables required by this particular
 infrastructure, where Cargo is invoked:
 
@@ -6293,7 +6292,7 @@ will automatically download the tarball from this location.
 
 On line 10, we tell Buildroot what options to enable for libfoo.
 
-On line 11, we tell Buildroot the depednencies of libfoo.
+On line 11, we tell Buildroot the dependencies of libfoo.
 
 Finally, on line line 13, we invoke the qmake-package macro that
 generates all the Makefile rules that actually allows the package to
@@ -7777,11 +7776,8 @@ The basic test case definition involves
   * Implementing a def test_run(self): function to optionally startup
     the emulator and provide test case conditions.
 
-Beyond creating the test script, there are a couple of additional
-steps that should be taken once you have your initial test case
-script. The first is to add yourself to the DEVELOPERS file to be the
-maintainer of that test case. The second is to update the Gitlab CI
-yml by executing make .gitlab-ci.yml.
+After creating the test script, add yourself to the DEVELOPERS file
+to be the maintainer of that test case.
 
 21.7.2. Debugging a test case
 
