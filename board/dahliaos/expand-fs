@@ -1,0 +1,5 @@
+#!/bin/bash
+printf "fix\n" | parted ---pretend-input-tty /dev/sda print
+parted ---pretend-input-tty /dev/sda resizepart 2 100%
+resize2fs /dev/sda2
+echo "Successfully expanded root partition (/dev/sda2) on volume /dev/sda"
