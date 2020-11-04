@@ -11,6 +11,7 @@
 
 # Buildroot
 
+- Buildroot is a simple, efficient and easy-to-use tool to generate embedded Linux systems through cross-compilation
 - This tool compiles dahliaOS Linux-based builds
 
 ## Usage
@@ -33,7 +34,7 @@ It is recommended to have at minumum an Ethernet connection (directly to router)
 
 I personally recommend a 4C/8T or better CPU with 16GB of RAM for optimal speeds.
 
-You will also need a decent amount of hard drive space, I reccomend around 50GB if you clear out the build directory often. 
+You will also need a decent amount of hard drive space, I recommend around 50GB if you clear out the build directory often. 
 
 It takes around 6 hours to build a full image from scratch on a Dell Optiplex 790 with a 3GHZ i5-2400 and 16GB of RAM. 
 
