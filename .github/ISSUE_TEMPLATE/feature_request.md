@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Pangolin
+about: Suggest an idea for buildroot
 title: ''
 labels: ''
 assignees: ''
@@ -15,9 +15,6 @@ A clear and concise description of what you want to happen.
 
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
-
-**For which platform is this feature request?**
-- Platform: [Linux, Zircon or Mobile]
 
 **Do you have an idea of how we would add it?**
 If you know how we would approach adding this feature, tell us how.
