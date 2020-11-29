@@ -1522,7 +1522,7 @@ get_packages() {
             has kiss       && tot kiss l
             has cpt-list   && tot cpt-list
             has pacman-key && tot pacman -Qq --color never
-            has dpkg       && tot dpkg-query -f '.\n' -W
+            has apt        && tot apt list
             has rpm        && tot rpm -qa
             has xbps-query && tot xbps-query -l
             has apk        && tot apk info
@@ -1535,8 +1535,11 @@ get_packages() {
             has sorcery    && tot gaze installed
             has alps       && tot alps showinstalled
             has butch      && tot butch list
-            has mine       && tot mine -q
             has swupd      && tot swupd bundle-list --quiet
+
+            # 'mine' conflicts with minesweeper games.
+            [[ -f /etc/SDE-VERSION ]] &&
+                has mine && tot mine -q
 
             # Counting files/dirs.
             # Variables need to be unquoted here. Only Bedrock Linux is affected.
@@ -1566,9 +1569,13 @@ get_packages() {
             }
 
             has nix-store && {
-                manager=nix-system  && tot nix-store -q --requisites /run/current-system/sw
-                manager=nix-user    && tot nix-store -q --requisites ~/.nix-profile
-                manager=nix-default && tot nix-store -q --requisites /nix/var/nix/profiles/default
+                nix-user-pkgs() {
+                    nix-store -qR ~/.nix-profile
+                    nix-store -qR /etc/profiles/per-user/"$USER"
+                }
+                manager=nix-system  && tot nix-store -qR /run/current-system/sw
+                manager=nix-user    && tot nix-user-pkgs
+                manager=nix-default && tot nix-store -qR /nix/var/nix/profiles/default
             }
 
             # pkginfo is also the name of a python package manager which is painfully slow.
@@ -1607,8 +1614,12 @@ get_packages() {
             has pkgin && tot pkgin list
 
             has nix-store && {
-                manager=nix-system && tot nix-store -q --requisites "/run/current-system/sw"
-                manager=nix-user   && tot nix-store -q --requisites "$HOME/.nix-profile"
+                nix-user-pkgs() {
+                    nix-store -qR ~/.nix-profile
+                    nix-store -qR /etc/profiles/per-user/"$USER"
+                }
+                manager=nix-system && tot nix-store -qR /run/current-system/sw
+                manager=nix-user   && tot nix-store -qR nix-user-pkgs
             }
         ;;
 
@@ -2844,7 +2855,7 @@ get_song() {
                                   string & "\n" & album of current track as¬
                                   string & "\n" & name of current track as string')"
         ;;
-	
+
         "music"*)
             song="$(osascript -e 'tell application "Music" to artist of current track as¬
                                   string & "\n" & album of current track as¬
@@ -8559,7 +8570,7 @@ EOF
         "NixOS"*)
             set_colors 4 6
             read -rd '' ascii_data <<'EOF'
-${c1}          ▗██▙       ${c2}▜███▙    ▟██▖
+${c1}          ▗▄▄▄       ${c2}▗▄▄▄▄    ▄▄▄▖
 ${c1}          ▜███▙       ${c2}▜███▙  ▟███▛
 ${c1}           ▜███▙       ${c2}▜███▙▟███▛
 ${c1}            ▜███▙       ${c2}▜██████▛
@@ -8578,7 +8589,7 @@ ${c2}     ▜▛     ${c1}▟████▙ ${c2}▜█████████
 ${c1}           ▟██████▙       ${c2}▜███▙
 ${c1}          ▟███▛▜███▙       ${c2}▜███▙
 ${c1}         ▟███▛  ▜███▙       ${c2}▜███▙
-${c1}         ▝██▛    ▜███▙       ${c2}▜██▘
+${c1}         ▝▀▀▀    ▀▀▀▀▘       ${c2}▀▀▀▘
 EOF
         ;;
 
