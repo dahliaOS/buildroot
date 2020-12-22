@@ -32,7 +32,7 @@ they are doing - politely bringing their behavior to their attention is
 encouraged.
 
 If you are uncomfortable speaking up, or feel that your concerns are not being
-duly considered, you can email the Project Integrity team at contact+integrity@dahliaos.io to request involvement from a moderator. All
+duly considered, you can email the Project Integrity team at integrity@dahliaos.io to request involvement from a moderator. All
 concerns shared with community managers will be kept confidential, but you may
 also submit an anonymous report [here](dahlia-os.github.io/anon).
 Please note that without a way to contact you, an anonymous report may be
@@ -49,6 +49,7 @@ conduct.
 
  * Harassing comments
  * Intimidation
+ * Arguing over subjective preference, e.g. text editors, nationality, religion, etc.
  * Encouraging a person to engage in self-harm.
  * Sustained disruption or derailing of threads, channels, lists, etc.
  * Offensive or violent comments, jokes or otherwise
@@ -77,7 +78,7 @@ immediately; failure to do so will result in an escalation of consequences.
 
 ## Acknowledgements
 
-This Code of Conduct is based on the Chromium Project Code of Conduct.
+This Code of Conduct is adapted from the Chromium Project Code of Conduct.
 
 ## License
 
