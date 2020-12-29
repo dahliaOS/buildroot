@@ -1,0 +1,8 @@
+config BR2_PACKAGE_SSLH
+	bool "sslh"
+	# uses fork()
+	depends on BR2_USE_MMU
+	help
+	  Applicative protocol multiplexer
+
+	  http://www.rutschle.net/tech/sslh.shtml
