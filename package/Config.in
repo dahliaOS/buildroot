@@ -8,6 +8,9 @@ menu "Target packages"
 	source "package/skeleton-init-openrc/Config.in"
 	source "package/skeleton-init-systemd/Config.in"
 	source "package/skeleton-init-sysv/Config.in"
+menu "dahliaOS core applications"
+	source "package/pangolin_desktop/Config.in"
+endmenu
 
 menu "Audio and video applications"
 	source "package/alsa-utils/Config.in"
