@@ -14,6 +14,10 @@
 - Buildroot is a simple, efficient and easy-to-use tool to generate embedded Linux systems through cross-compilation
 - This tool compiles dahliaOS Linux-based builds
 
+## Required packages
+- syslinux-utils
+- ccd2iso
+
 ## Usage
 
 - ```make menuconfig``` to configure the build settings
