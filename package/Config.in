@@ -10,6 +10,7 @@ menu "Target packages"
 	source "package/skeleton-init-sysv/Config.in"
 menu "dahliaOS core applications"
 	source "package/pangolin_desktop/Config.in"
+	source "package/neofetch/Config.in"
 endmenu
 
 menu "Audio and video applications"
