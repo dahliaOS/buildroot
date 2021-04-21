@@ -7,7 +7,7 @@
 <a href="https://discord.gg/7qVbJHR">Discord</a> ●
 <a href="https://github.com/dahliaos/releases/releases">Releases</a> ●
 <a href="https://paypal.me/officialdahliaos">Donate</a> ●
-<a href="https://github.com/dahliaos/documentation">Documentation</a>
+<a href="https://docs.dahliaos.io">Documentation</a>
 
 # Buildroot
 
