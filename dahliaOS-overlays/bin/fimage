@@ -1,0 +1,3 @@
+echo "starting VM ..."
+cd /dahlia/fuchsia_runtime/
+./emu -a off --headless -m 2048

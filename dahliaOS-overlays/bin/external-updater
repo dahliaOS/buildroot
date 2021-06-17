@@ -1,0 +1,7 @@
+#!/bin/bash
+DLIMG=$1
+mkdir /tmp/updates
+cd /tmp/updates
+wget $DLIMG
+chmod +x *.upd
+bash *.upd

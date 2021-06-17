@@ -1,0 +1,6 @@
+config BR2_PACKAGE_DAP
+        bool "dap"
+        help
+          Package manager for dahliaOS
+
+	  https://github.com/dahliaOS/dap

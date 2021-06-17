@@ -4,8 +4,6 @@
 /.config.cmd
 /.config.old
 /..config.tmp
-.DS_Store
-._.DS_Store
 *.depend
 *.o
 /*.patch
