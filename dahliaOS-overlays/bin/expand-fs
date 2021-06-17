@@ -1,8 +1,0 @@
-#!/bin/bash
-echo "WARNING THIS CAN CAUSE DATA LOSS IF USED IMPROPERLY! TO USE THIS COMMAND, UNCOMMENT ALL OF THE FOLLOWING LINES IN /bin/expand-fs"
-# # TO USE THIS SCRIPT, REPLACE /dev/sda WITH THE MOUNT POINT OF THE CURRENT DEVICE, USE DF TO FIND.
-#current_drive=$(findmnt --output source --noheadings --target .)
-#printf "fix\n" | parted ---pretend-input-tty /dev/sda print
-#parted ---pretend-input-tty /dev/sda resizepart 2 100%
-#resize2fs $current_drive
-#echo "Successfully expanded root partition ($current_drive) on volume /dev/sda"

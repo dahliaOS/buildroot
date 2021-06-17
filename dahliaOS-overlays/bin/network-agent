@@ -1,9 +1,0 @@
-#!/bin/bash
-SSID=$1
-PASSWORD=$2
-echo $SSID
-echo $PASSWORD
-
-wpa_passphrase $SSID $PASSWORD >> /etc/wpa_supplicant.conf
-ifconfig -v wlp2s0 up
-wpa_supplicant -D nl80211 -i wlp2s0 -c /etc/wpa_supplicant.conf
