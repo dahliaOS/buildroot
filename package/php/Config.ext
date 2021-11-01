@@ -92,6 +92,10 @@ config BR2_PACKAGE_PHP_EXT_MCRYPT
 config BR2_PACKAGE_PHP_EXT_OPENSSL
 	bool "openssl"
 	select BR2_PACKAGE_OPENSSL
+	select BR2_PACKAGE_LIBOPENSSL_ENABLE_DES if BR2_PACKAGE_LIBOPENSSL
+	select BR2_PACKAGE_LIBOPENSSL_ENABLE_MD4 if BR2_PACKAGE_LIBOPENSSL
+	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RC4 if BR2_PACKAGE_LIBOPENSSL
+	select BR2_PACKAGE_LIBOPENSSL_ENABLE_RMD160 if BR2_PACKAGE_LIBOPENSSL
 	help
 	  openssl support
 
@@ -270,11 +274,6 @@ config BR2_PACKAGE_PHP_EXT_GMP
 
 comment "Other basic extensions"
 
-config BR2_PACKAGE_PHP_EXT_JSON
-	bool "JSON"
-	help
-	  JavaScript Object Serialization support
-
 config BR2_PACKAGE_PHP_EXT_TOKENIZER
 	bool "Tokenizer"
 	help
@@ -359,13 +358,6 @@ config BR2_PACKAGE_PHP_EXT_SOAP
 	select BR2_PACKAGE_PHP_EXT_LIBXML2
 	help
 	  SOAP support
-
-config BR2_PACKAGE_PHP_EXT_XMLRPC
-	bool "XML-RPC"
-	select BR2_PACKAGE_PHP_EXT_LIBXML2
-	select BR2_PACKAGE_LIBICONV if !BR2_ENABLE_LOCALE
-	help
-	  XML-RPC support
 
 comment "XML manipulation"
 

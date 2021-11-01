@@ -8,3 +8,10 @@ sed "s/UUID_TMP/$UUID/g" board/dahliaos/genimage-efi.cfg > "$BINARIES_DIR/genima
 
 
 support/scripts/genimage.sh -c "$BINARIES_DIR/genimage-efi.cfg"
+mkdir -p output/images/dahliaOS
+cp output/images/*.iso9660 output/images/dahliaOS/dahliaOS$(date +%s).iso
+cp output/images/*efi.img output/images/dahliaOS/dahliaOS_efi$(date +%s).img
+#zip output/images/dahliaOS/*.iso.zip output/images/dahliaOS/*.iso
+#zip output/images/dahliaOS/*.img.zip output/images/dahliaOS/*efi.img
+#rm output/images/dahliaOS/*.iso
+#rm output/images/dahliaOS/*.img

@@ -11,6 +11,8 @@ LVM2_INSTALL_STAGING = YES
 LVM2_LICENSE = GPL-2.0, LGPL-2.1
 LVM2_LICENSE_FILES = COPYING COPYING.LIB
 LVM2_CPE_ID_PRODUCT = redhat
+# parallel build issues
+LVM2_MAKE = $(MAKE1)
 
 # Make sure that binaries and libraries are installed with write
 # permissions for the owner. We disable NLS because it's broken, and
@@ -46,17 +48,16 @@ else
 LVM2_CONF_OPTS += --disable-selinux
 endif
 
-ifeq ($(BR2_PACKAGE_LVM2_STANDARD_INSTALL),)
+ifeq ($(BR2_PACKAGE_LVM2_STANDARD_INSTALL),y)
+LVM2_INSTALL_STAGING_OPTS += install
+LVM2_INSTALL_TARGET_OPTS += install
+ifeq ($(BR2_INIT_SYSTEMD),y)
+LVM2_INSTALL_TARGET_OPTS += install_systemd_units install_systemd_generators
+endif
+else
 LVM2_MAKE_OPTS = device-mapper
 LVM2_INSTALL_STAGING_OPTS += install_device-mapper
 LVM2_INSTALL_TARGET_OPTS += install_device-mapper
-else
-LVM2_INSTALL_STAGING_OPTS += install
-LVM2_INSTALL_TARGET_OPTS += install
-endif
-
-ifeq ($(BR2_INIT_SYSTEMD),y)
-LVM2_INSTALL_TARGET_OPTS += install_systemd_units install_systemd_generators
 endif
 
 ifeq ($(BR2_TOOLCHAIN_SUPPORTS_PIE),)

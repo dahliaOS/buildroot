@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-NGINX_VERSION = 1.18.0
+NGINX_VERSION = 1.20.1
 NGINX_SITE = http://nginx.org/download
 NGINX_LICENSE = BSD-2-Clause
 NGINX_LICENSE_FILES = LICENSE
@@ -12,9 +12,6 @@ NGINX_CPE_ID_VENDOR = nginx
 NGINX_DEPENDENCIES = \
 	host-pkgconf \
 	$(if $(BR2_PACKAGE_LIBXCRYPT),libxcrypt)
-
-# 0010-Resolver-fixed-off-by-one-write-in-ngx_resolver_copy.patch
-NGINX_IGNORE_CVES += CVE-2021-23017
 
 NGINX_CONF_OPTS = \
 	--crossbuild=Linux::$(BR2_ARCH) \
@@ -233,6 +230,10 @@ NGINX_CONF_OPTS += --with-stream
 
 ifeq ($(BR2_PACKAGE_NGINX_STREAM_REALIP_MODULE),y)
 NGINX_CONF_OPTS += --with-stream_realip_module
+endif
+
+ifeq ($(BR2_PACKAGE_NGINX_STREAM_SET_MODULE),)
+NGINX_CONF_OPTS += --without-stream_set_module
 endif
 
 ifeq ($(BR2_PACKAGE_NGINX_STREAM_SSL_MODULE),y)

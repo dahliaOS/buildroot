@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-QEMU_VERSION = 5.2.0
+QEMU_VERSION = 6.0.0
 QEMU_SOURCE = qemu-$(QEMU_VERSION).tar.xz
 QEMU_SITE = http://download.qemu.org
 QEMU_LICENSE = GPL-2.0, LGPL-2.1, MIT, BSD-3-Clause, BSD-2-Clause, Others/BSD-1c
@@ -198,7 +198,7 @@ define QEMU_CONFIGURE_CMDS
 			--disable-vhost-crypto \
 			--disable-libxml2 \
 			--disable-capstone \
-			--disable-git-update \
+			--with-git-submodules=ignore \
 			--disable-opengl \
 			--disable-vhost-user-blk-server \
 			--disable-virtiofsd \

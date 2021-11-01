@@ -1,3 +1,79 @@
+2021.08-rc1, released August 3rd, 2021
+
+	Numerous package updates.
+
+	Toolchain:
+
+        - add support for gcc 11.x, gcc 10.x is now the default, gcc
+	  9.x updated to 9.4.0, removed gcc 8.x support except for
+	  PowerPC SPE
+
+	- add support for binutils 2.37, binutils 2.36.x is now the
+          default, binutils 2.34 removed.
+
+	- glibc updated to 2.33
+
+        - gdb enabled on NIOS II, gdbserver enabled on RISC-V.
+
+	Bootloaders/firmware: support for building the EDK II UEFI
+	firmware, support for building AT91Bootstrap 4.x.
+
+	New BR2_ENABLE_RUNTIME_DEBUG option, that controls whether
+	packages should be compiled with runtime debugging
+	information (which is different than debugging symbols).
+
+	Many features of the bluez5_utils package have been made
+	optional, and default to disabled. Users of bluez5_utils are
+	encouraged to review their configuration.
+
+	Many packages (over 70) updated to enable the appropriate
+	SELinux refpolicy module when SELinux support is enabled.
+
+	Many packages updated to select the appropriate OpenSSL
+	features after many OpenSSL ciphers/features have been made
+	optional.
+
+	New defconfigs: kontron_pitx_imx8m, microchip_sama5d2_icp,
+	qemu_aarch64_sbsa, raspberrypicm4io, raspberrypicm4io_64,
+	terasic_de10nano_cyclone5, uevm5432.
+
+	New packages: alsa-plugins, apg, bmap-tools, daq3, edk2,
+	edk2-platforms, gumbo-parser, libbpf, libosmium, libpsl,
+	libqb, libtalloc, libvirt, lua-linux, lua-zlib, mupdf,
+	opencv4, osm2pgsql, poke, python-augeas, python-dbus-next,
+	python-pymupdf, rtl_433, rtl8812au-aircrack-ng, seatd, snort3,
+	system-config-printer, usbguard, xml-security-c, xmrig.
+
+	Removed packages: clapack, libsoil.
+
+	Issues resolved (http://bugs.uclibc.org):
+
+	#13326: regarding dtc error in buildroot source code
+	#13661: host-python2 build fails on aarch64
+	#13836: package build failure when target install set to no on
+	        pkg-generic pkg types
+	#13846: BR2_PACKAGE_LVM2_STANDARD_INSTALL should be default to
+	        y as before
+
+2021.05, released June 6th, 2021
+
+	Various fixes.
+
+	Disable PIC/PIE support for Nios2 because of glibc issues
+
+	Defconfigs: Minnowboard max: Fix X11 and mesa3d configuration
+
+	Updated/fixed packages: apache, beaglev-ddrinit,
+	beaglev-secondboot, capnproto, dc3dd, directfb, efibootmgr,
+	ffmpeg, gptfdisk, go, gupnp, hostapd, iftop,
+	intel-mediadriver, libcamera, libcutl, libesmtp, libkcapi,
+	libraw, lttng-tools, lvm2, mimic, mono-gtksharp3, mpv,
+	netperf, odb, qt5base, uclibc, uftrace, unscd, vlc,
+	xdriver_xf86-video-fbturbo
+
+	New packages: python3-cffi, python3-cryptography, python3-pip,
+	python3-pycparser, python3-six
+
 2021.05-rc3, released May 31th, 2021
 
 	Fixes all over the tree.
@@ -124,6 +200,51 @@
 	#13741: genext2fs does not allow to set perms of root node
 	#13751: libopenssl (static): huge drop in performance in newer ..
 	#13771: package htop has undeclared dependency on host python
+
+2021.02.3, released June 12th, 2021
+
+	Important / security related fixes.
+
+	CPE meta data has been added for a large number of packages
+
+	Updated/fixed packages: acpid, apache, apcupsd, assimp, bird,
+	bitcoin, blktrace, boost, capnproto, chrony, dc3dd, dhcp,
+	directfb, dmalloc, docker-engine, ebtables, efibootmgr,
+	enlightenment, enscript, environment-setup, exempi, expat,
+	findutils, flatcc, fluidsynth, frr, gdb, go, gptfdisk, grpc,
+	gst1-plugins-bad, gst1-rtsp-server, gstreamer1, gupnp,
+	hostapd, hwloc, i2c-tools, iftop, imagemagick, imx-gpu-viv,
+	intel-mediadriver, intel-microcode, jquery-validation,
+	keepalived, kodi, less, libcamera, libcurl, libcutl, libesmtp,
+	libeXosip2, libffi, libfuse, libfuse3, libgeos, libgtk2,
+	libgtk3, libical, libidn, libidn2, libkcapi, libldns, libmms,
+	libmodbus, libmspack, libnids, libopenh264, liboping, libraw,
+	librelp, libsamplerate, libtirpc, libusb, libuv, libxcb,
+	libxml2, libxslt, live555, llvm, lmbench, localedef,
+	lttng-tools, lvm2, lz4, mesa3d, mimic, mini-snmpd, minidlna,
+	minissdpd, minizip, mono-gtksharp3, mpg123, mpv, msmtp, musl,
+	mutt, nasm, nbd, netperf, netsurf, nginx, odb, opencv3,
+	openssh, opentyrian, oprofile, p7zip, paho-mqtt-c, perl,
+	php-imagick, pifmrds, picocom, pigz, pngquant, poco,
+	postgresql, prosody, proxychains-ng, pulseaudio, putty, pwgen,
+	python-autobahn, python-bluezero, python-engineio,
+	python-keyring, python-pillow, python-requests, python-tqdm,
+	qemu, qpdf, qt5base, redis, refpolicy, rt-tests, runc,
+	shellinabox, squid, strace, supervisor, synergy, taglib,
+	tclap, terminology, thermald, tini, tinyproxy, tinyxml2,
+	tpm2-tss, uclibc, udisks, uhd, unscd, vlc, waylandpp,
+	webkitgtk, weston, wireshark, wpa_supplicant, wpewebkit,
+	xlib_libdmx, xlib_libFS, xlib_libICE, xlib_libX11,
+	xlib_libXcursor, xlib_libXdmcp, xlib_libXext, xlib_libXfixes,
+	xlib_libXfont2, xlib_libXinerama, xlib_libXpm, xlib_libXres,
+	xlib_libXt, xlib_libXtst, xlib_libXxf86dga, xlib_libXxf86vm,
+	xterm
+
+	Issues resolved (http://bugs.uclibc.org):
+
+	#13781: isc dhcp-server package don't create file /usr/bin/dhcpd
+	#13801: toolchainfile.cmake CMAKE_BUILD_TYPE
+	#13806: Building host-localedef fails on fedora 34/gcc 11
 
 2021.02.2, released May 12th, 2021
 
