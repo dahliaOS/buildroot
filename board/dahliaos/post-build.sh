@@ -16,4 +16,3 @@ fi
 
 fallocate -l 512M "$BINARIES_DIR/stateful.img"
 mkfs.btrfs -L stateful -f "$BINARIES_DIR/stateful.img"
-
