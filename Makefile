@@ -773,10 +773,10 @@ endif
 	mkdir -p $(TARGET_DIR)/etc
 	( \
 		echo "NAME=dahliaOS"; \
-		echo "VERSION=21XXXX"; \
+		echo "VERSION=220122"; \
 		echo "ID=dahliaOS"; \
-		echo "VERSION_ID=21XXXX"; \
-		echo "PRETTY_NAME=\"dahliaOS 21XXXX\"" \
+		echo "VERSION_ID=220122"; \
+		echo "PRETTY_NAME=\"dahliaOS 220122\"" \
 	) >  $(TARGET_DIR)/usr/lib/os-release
 	ln -sf ../usr/lib/os-release $(TARGET_DIR)/etc
 

@@ -5,7 +5,7 @@
 ################################################################################
 
 PANGOLIN_DESKTOP_VERSION = main 
-PANGOLIN_DESKTOP_SITE = git://github.com/dahliaOS/pangolin_desktop.git
+PANGOLIN_DESKTOP_SITE = https://github.com/dahliaOS/pangolin_desktop.git
 PANGOLIN_DESKTOP_GIT_SUBMODULES = YES
 PANGOLIN_DESKTOP_INSTALL_STAGING = NO
 # help
