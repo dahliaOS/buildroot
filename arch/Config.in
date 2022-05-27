@@ -60,7 +60,6 @@ config BR2_armeb
 config BR2_aarch64
 	bool "AArch64 (little endian)"
 	select BR2_ARCH_IS_64
-	select BR2_ARCH_HAS_MMU_MANDATORY
 	help
 	  Aarch64 is a 64-bit architecture developed by ARM Holdings.
 	  http://www.arm.com/products/processors/instruction-set-architectures/armv8-architecture.php
@@ -69,7 +68,6 @@ config BR2_aarch64
 config BR2_aarch64_be
 	bool "AArch64 (big endian)"
 	select BR2_ARCH_IS_64
-	select BR2_ARCH_HAS_MMU_MANDATORY
 	help
 	  Aarch64 is a 64-bit architecture developed by ARM Holdings.
 	  http://www.arm.com/products/processors/instruction-set-architectures/armv8-architecture.php
@@ -77,9 +75,8 @@ config BR2_aarch64_be
 
 config BR2_csky
 	bool "csky"
+	select BR2_ARCH_HAS_NO_TOOLCHAIN_BUILDROOT
 	select BR2_ARCH_HAS_MMU_MANDATORY
-	# Most variants are supported by gcc-9+, except one that is
-	# handled as a special exception in package/gcc/Config.in.host
 	select BR2_ARCH_NEEDS_GCC_AT_LEAST_9
 	help
 	  csky is processor IP from china.
@@ -210,7 +207,6 @@ config BR2_powerpc64le
 
 config BR2_riscv
 	bool "RISCV"
-	select BR2_ARCH_HAS_MMU_MANDATORY
 	select BR2_ARCH_NEEDS_GCC_AT_LEAST_7
 	help
 	  RISC-V is an open, free Instruction Set Architecture created
@@ -230,7 +226,7 @@ config BR2_s390x
 
 config BR2_sh
 	bool "SuperH"
-	select BR2_ARCH_HAS_MMU_OPTIONAL
+	select BR2_ARCH_HAS_MMU_MANDATORY
 	help
 	  SuperH (or SH) is a 32-bit reduced instruction set computer
 	  (RISC) instruction set architecture (ISA) developed by
@@ -328,6 +324,9 @@ config BR2_ARCH_NEEDS_GCC_AT_LEAST_11
 # The following string values are defined by the individual
 # Config.in.$ARCH files
 config BR2_ARCH
+	string
+
+config BR2_NORMALIZED_ARCH
 	string
 
 config BR2_ENDIAN

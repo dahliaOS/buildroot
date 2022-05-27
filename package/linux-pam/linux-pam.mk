@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LINUX_PAM_VERSION = 1.5.1
+LINUX_PAM_VERSION = 1.5.2
 LINUX_PAM_SOURCE = Linux-PAM-$(LINUX_PAM_VERSION).tar.xz
 LINUX_PAM_SITE = https://github.com/linux-pam/linux-pam/releases/download/v$(LINUX_PAM_VERSION)
 LINUX_PAM_INSTALL_STAGING = YES
@@ -17,6 +17,7 @@ LINUX_PAM_CONF_OPTS = \
 	--enable-securedir=/lib/security \
 	--libdir=/lib
 LINUX_PAM_DEPENDENCIES = flex host-flex host-pkgconf \
+	$(if $(BR2_PACKAGE_LIBXCRYPT),libxcrypt) \
 	$(TARGET_NLS_DEPENDENCIES)
 LINUX_PAM_LICENSE = BSD-3-Clause
 LINUX_PAM_LICENSE_FILES = Copyright
@@ -39,6 +40,13 @@ LINUX_PAM_CONF_OPTS += --enable-audit
 LINUX_PAM_DEPENDENCIES += audit
 else
 LINUX_PAM_CONF_OPTS += --disable-audit
+endif
+
+ifeq ($(BR2_PACKAGE_OPENSSL),y)
+LINUX_PAM_CONF_OPTS += --enable-openssl
+LINUX_PAM_DEPENDENCIES += openssl
+else
+LINUX_PAM_CONF_OPTS += --disable-openssl
 endif
 
 # Install default pam config (deny everything except login)

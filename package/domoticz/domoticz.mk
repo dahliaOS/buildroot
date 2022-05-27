@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-DOMOTICZ_VERSION = 2021.1
+DOMOTICZ_VERSION = 2022.1
 DOMOTICZ_SITE = https://github.com/domoticz/domoticz
 DOMOTICZ_SITE_METHOD = git
 DOMOTICZ_GIT_SUBMODULES = YES
@@ -40,6 +40,11 @@ DOMOTICZ_CONF_OPTS += \
 	-DUSE_BUILTIN_LIBFMT=OFF \
 	-DUSE_BUILTIN_SQLITE=OFF \
 	-DUSE_BUILTIN_MQTT=OFF
+
+ifeq ($(BR2_PACKAGE_LIBEXECINFO),y)
+DOMOTICZ_DEPENDENCIES += libexecinfo
+DOMOTICZ_CONF_OPTS += -DEXECINFO_LIBRARIES=-lexecinfo
+endif
 
 ifeq ($(BR2_PACKAGE_LIBUSB),y)
 DOMOTICZ_DEPENDENCIES += libusb

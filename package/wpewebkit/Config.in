@@ -30,7 +30,7 @@ config BR2_PACKAGE_WPEWEBKIT
 	bool "wpewebkit"
 	depends on !BR2_STATIC_LIBS # wayland
 	depends on !BR2_BINFMT_FLAT # icu
-	depends on BR2_HOST_GCC_AT_LEAST_4_9 # icu
+	depends on BR2_HOST_GCC_AT_LEAST_4_9 # icu, host-ruby
 	depends on BR2_INSTALL_LIBSTDCPP # harfbuzz, icu
 	depends on BR2_TOOLCHAIN_HAS_THREADS # wayland, icu, libsoup
 	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_7
@@ -106,6 +106,12 @@ config BR2_PACKAGE_WPEWEBKIT_MULTIMEDIA
 	  to enable multimedia (video/audio) support.
 
 if BR2_PACKAGE_WPEWEBKIT_MULTIMEDIA
+
+config BR2_PACKAGE_WPEWEBKIT_MEDIA_STREAM
+	bool "media-stream support"
+	select BR2_PACKAGE_GST1_PLUGINS_BASE_PLUGIN_VIDEORATE
+	help
+	  This option enables media-stream support.
 
 config BR2_PACKAGE_WPEWEBKIT_USE_GSTREAMER_GL
 	bool "use gstreamer-gl"
