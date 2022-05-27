@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SNORT3_VERSION = 3.1.6.0
+SNORT3_VERSION = 3.1.18.0
 SNORT3_SITE = $(call github,snort3,snort3,$(SNORT3_VERSION))
 SNORT3_LICENSE = GPL-2.0
 SNORT3_LICENSE_FILES = COPYING LICENSE
@@ -52,6 +52,11 @@ SNORT3_DEPENDENCIES += xz
 SNORT3_CONF_OPTS += -DHAVE_LZMA=ON
 else
 SNORT3_CONF_OPTS += -DHAVE_LZMA=OFF
+endif
+
+# Uses __atomic_load_8
+ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+SNORT3_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS=-latomic
 endif
 
 $(eval $(cmake-package))

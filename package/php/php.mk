@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PHP_VERSION = 8.0.9
+PHP_VERSION = 8.0.19
 PHP_SITE = https://www.php.net/distributions
 PHP_SOURCE = php-$(PHP_VERSION).tar.xz
 PHP_INSTALL_STAGING = YES
@@ -134,11 +134,6 @@ endif
 ifeq ($(BR2_PACKAGE_PHP_EXT_MBSTRING),y)
 PHP_CONF_OPTS += --enable-mbstring
 PHP_DEPENDENCIES += oniguruma
-endif
-
-ifeq ($(BR2_PACKAGE_PHP_EXT_MCRYPT),y)
-PHP_CONF_OPTS += --with-mcrypt=$(STAGING_DIR)/usr
-PHP_DEPENDENCIES += libmcrypt
 endif
 
 ifeq ($(BR2_PACKAGE_PHP_EXT_OPENSSL),y)

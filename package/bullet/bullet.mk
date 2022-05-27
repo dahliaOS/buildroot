@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BULLET_VERSION = 3.09
+BULLET_VERSION = 3.21
 BULLET_SITE = $(call github,bulletphysics,bullet3,$(BULLET_VERSION))
 BULLET_INSTALL_STAGING = YES
 BULLET_LICENSE = Zlib
@@ -24,7 +24,7 @@ endif
 
 BULLET_CXXFLAGS = $(TARGET_CXXFLAGS)
 
-ifeq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180),y)
+ifneq ($(BR2_TOOLCHAIN_HAS_GCC_BUG_85180)$(BR2_TOOLCHAIN_HAS_GCC_BUG_101952),)
 BULLET_CXXFLAGS += -O0
 endif
 
