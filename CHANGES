@@ -1,3 +1,21 @@
+2022.05-rc2, released May 30th, 2022
+
+	Fixes all over the tree.
+
+	Defconfigs: qemu_ppc64*: Use binutils 2.36.1 to fix build
+	issue, qemu_arm_vexpress_tz: Fix optee-os build issue,
+	qemu_arm_versatile_nommu: Drop now that nommu for ARMv5 is no
+	longer available
+
+	Updated/fixed packages: dhcp, edk2, gcr, glibc, i2pd, janet,
+	janus-gateway, libfreeimage, libnftnl, libnss, libodb-boost,
+	libostree, libwebsockets, linux-tools, midori, ntfs-3g, ola,
+	optee-client, pcsc-lite, pipewire, python-flask,
+	python-service-identity, python-werkzeug, qemu, rng-tools,
+	rockchip-mali, strace, xdriver_xf86-video-amdgpu
+
+	Removed packages: ktap
+
 2022.05-rc1, released May 18th, 2022
 
 	Fixes all over the tree and new features.
@@ -46,6 +64,53 @@
 	#14711: nodjs build problem missing bzip
 	#14721: python-argon2_cffi no longer works
 	#14731: BR2_PACKAGE_IOSTAT
+	#14751: LVM2 Outdated Link
+
+2022.02.2, released May 29th, 2022
+
+	Important / security related fixes.
+
+	Archictures: Drop sh2a, correct x86 Bonnell variant
+
+	Toolchain: Bump GCC 11.x to 11.3, correct pre-installed
+	external toolchain logic when toolchain is available in path.
+
+	Rework OCI filesystem entrypoint/command logic to handle
+	command arguments
+
+	Defconfigs: Update Zynqmp zcu102/106 to final 2022.1 release,
+	fix zcu106 PLL config
+
+	Updated/fixed packages: adwaita-icon-theme, afboot-stm32,
+	aircrack-ng, alchemy, alsa-lib, arptables, assimp, asterisk,
+	aubio, avrdude, azure-iot-sdk-c, batman-adv, binutils,
+	bpftool, brotli, cairo, cifs-utils, clamav, cryptodev-linux,
+	dhcp, diffutils, dmalloc, duktape, e2fsprogs, elf2flt, espeak,
+	expat, ffmpeg, fluidsynth, freerdp, gcc, git, glorytun,
+	glslsandbox-player, gnutls, go, gst1-imx, gst1-plugins-good,
+	gzip, imagemagick, janus-gateway, keepalived, kompexsqlite,
+	kvm-unit-tests, libarchive, libcgi, libcurl, libevdev,
+	libeXosip2, libhtp, libinput, libkcapi, libkrb5, libks,
+	libmdbx, libmnl, libnpupnp, libnspr, libopenssl, liboping,
+	libpjsip, libpri, libselinux, libsigsegv, libv4l,
+	libwebsockets, libxml2, linux, linux-tools, ltp-testsuite,
+	luajit, lvm2, mali-driver, mariadb, mc, minizip, mpd, mutt,
+	netatalk, netsurf, network-manager, nodejs, numactl, nut,
+	omniorb, openbox, opencv4, openjdk, openjdk-bin, openocd,
+	pamtester, pango, pcre2, php, php-apcu, pinentry, pixman,
+	polkit, postgis, postgresql, pure-ftpd, python-aenum,
+	python-avro, python-django, python-pillow, python-simplejson,
+	python-urllib3, python-zopfli, python3, qemu, qpdf, quazip,
+	redis, rockchip-mali, rsync, rt-tests, rust, rtl8818eu,
+	rtl8189es, rtl8189fs, rtl_433, sam-ba, samba4, sdl2_ttf,
+	shadowsocks-libev, shim, subversion, sun20i-d1-spl, suricata,
+	systemd, tftpd, trinity, tvheadend, udev, uftrace,
+	urandom-scripts, usb_modeswitch, valgrind, vde2, vim,
+	wireplumber, wolfssl, wpa_supplicant, xlib_libXfont2, xz,
+	zlib, zlog
+
+	Issues resolved (http://bugs.uclibc.org):
+
 	#14751: LVM2 Outdated Link
 
 2022.02.1, released April 11th, 2022
