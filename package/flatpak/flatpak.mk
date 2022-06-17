@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-FLATPAK_VERSION = 1.0.6
+FLATPAK_VERSION = 1.13.3
 FLATPAK_SITE = https://github.com/flatpak/flatpak
 FLATPAK_SITE_METHOD = git
 FLATPAK_GIT_SUBMODULES = YES
