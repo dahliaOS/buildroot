@@ -23,6 +23,7 @@
 ## Required packages
 - syslinux-utils
 - ccd2iso
+- docbook-xsl
 
 ## Usage
 
