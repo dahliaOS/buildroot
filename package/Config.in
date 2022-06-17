@@ -11,6 +11,7 @@ menu "Target packages"
 
 menu "dahliaOS core applications"
 	source "package/pangolin_desktop/Config.in"
+	source "package/flatpak/Config.in"
 endmenu
 
 menu "Audio and video applications"
