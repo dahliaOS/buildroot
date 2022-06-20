@@ -11,7 +11,6 @@ menu "Target packages"
 
 menu "dahliaOS core applications"
 	source "package/pangolin_desktop/Config.in"
-	source "package/flatpak/Config.in"
 endmenu
 
 menu "Audio and video applications"
@@ -2446,6 +2445,7 @@ comment "-------------------------------------------------------"
 	source "package/opkg/Config.in"
 	source "package/opkg-utils/Config.in"
 	source "package/rpm/Config.in"
+	source "package/flatpak/Config.in"
 endmenu
 
 menu "Real-Time"
