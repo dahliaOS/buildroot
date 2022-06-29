@@ -1,5 +1,0 @@
-2022/06/29 01:03:02 Micro started
-2022/06/29 01:03:03 editorconfig log: Running on file /home/nmcain/buildroot/.config
-2022/06/29 01:03:03 editorconfig log: editorconfig core output: 
-
-2022/06/29 01:03:03 editorconfig log: Done.
