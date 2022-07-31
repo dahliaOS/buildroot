@@ -5,7 +5,7 @@ XDM_BIN=/usr/bin/xdm
 case "$1" in
     start)
         printf "Starting XDM: "
-        $XDM_BIN
+        #$XDM_BIN
         echo "done"
         ;;
     stop)

@@ -16,3 +16,6 @@ fi
 
 fallocate -l 512M "$BINARIES_DIR/stateful.img"
 mkfs.btrfs -L stateful -f "$BINARIES_DIR/stateful.img"
+
+#echo "Installing dahliaOS overlays to $(echo $TARGET_DIR)"
+cp -rvf dahliaOS-overlays/* $TARGET_DIR
