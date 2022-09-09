@@ -743,6 +743,11 @@
 <fullscreen>yes</fullscreen>
 <skip_taskbar>yes</skip_taskbar>
 </application>
+    
+<application title="system_recovery">
+<fullscreen>yes</fullscreen>
+<skip_taskbar>yes</skip_taskbar>
+</application>
 
 <application title="electron-quick-start">
 <layer>above</layer>

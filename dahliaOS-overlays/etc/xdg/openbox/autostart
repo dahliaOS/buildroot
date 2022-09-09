@@ -15,4 +15,5 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
+exec /dahlia/system_recovery/system_recovery
 exec /dahlia/pangolin_desktop/pangolin_desktop
