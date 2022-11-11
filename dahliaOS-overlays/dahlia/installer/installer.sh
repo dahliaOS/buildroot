@@ -7,7 +7,7 @@ disk="sda"
 if [ -d /sys/firmware/efi/efivars ] ; then
 	echo "EFI detected"
 	partition_table="./efi.sh"	
-	
+	echo ',,L' | sfdisk --wipe=always --label=gpt ${disk}
 	efi_part="${disk}1"
 	recovery_part="${disk}2"
 	stateless_part="${disk}3"
@@ -15,7 +15,7 @@ if [ -d /sys/firmware/efi/efivars ] ; then
 else
 	echo "System booted on BIOS"
 	partition_table="./mbr.sh"
-
+	echo ',,L' | sfdisk --wipe=always --label=dos ${disk}
 	conf_part="${disk}1"
 	recovery_part="${disk}2"
 	stateless_part="${disk}3"
