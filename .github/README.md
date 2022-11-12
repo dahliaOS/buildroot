@@ -14,6 +14,7 @@
 - syslinux-utils
 - ccd2iso
 - docbook-xsl
+- clang
 
 ## Usage
 
