@@ -24,6 +24,7 @@ fi
 
 
 #partition disk
+dd if=/dev/urandom of=/dev/$disk bs=1M count=2
 sfdisk "/dev/$disk" <<< `$partition_table "$disk"`
 #create btrfs partitions
 mkfs.btrfs "/dev/$recovery_part"
