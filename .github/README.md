@@ -1,8 +1,8 @@
 <p align="center">
-<a href="https://dahliaos.io">Website</a> ●
-<a href="https://discord.gg/7qVbJHR">Discord</a> ●
-<a href="https://github.com/dahliaos/releases/releases">Releases</a> ●
-<a href="https://paypal.me/officialdahliaos">Donate</a> ●
+<a href="https://dahliaos.io">Website</a> •
+<a href="https://dahliaos.io/discord">Discord</a> •
+<a href="https://dahliaos.io/download">Releases</a> •
+<a href="https://dahliaos.io/donate">Donate</a> •
 <a href="https://docs.dahliaos.io">Documentation</a>
 
 # Buildroot
