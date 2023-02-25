@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PANGOLIN_DESKTOP
+        bool "pangolin_desktop"
+        help
+          Default desktop for dahliaOS. Requires Flutter SDK to be installed on host system.
+
+	  https://github.com/dahliaOS/pangolin-desktop

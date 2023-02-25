@@ -1,0 +1,18 @@
+{
+    "enabled": true,
+    "package": [
+        {
+            "id": "io.dahliaos.web",
+            "altName": "web",
+            "realName": "Web Browser",
+            "version": "webapp",
+            "description": "Browse the web",
+            "url": "https://duckduckgo.com",
+            "iconURL": "https://raw.githubusercontent.com/dahliaOS/pangolin_desktop/main/assets/icons/web.png",
+            "accentColor": "#333333",
+            "backgroundColor": "#ffffff",
+            "titleBarColor": "#333333",
+            "themeMode": "dark"
+        }
+    ]
+}

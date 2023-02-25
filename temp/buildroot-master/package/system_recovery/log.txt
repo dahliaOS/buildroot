@@ -1,0 +1,9 @@
+2022/07/26 02:58:59 Micro started
+2022/07/26 02:58:59 editorconfig log: Running on file /home/nmcain/recoveryos/package/system_recovery/system_recovery.mk
+2022/07/26 02:58:59 editorconfig log: editorconfig core output: 
+
+2022/07/26 02:58:59 editorconfig log: Done.
+2022/07/26 03:01:39 editorconfig log: Running on file /home/nmcain/recoveryos/package/system_recovery/system_recovery.mk
+2022/07/26 03:01:39 editorconfig log: editorconfig core output: 
+
+2022/07/26 03:01:39 editorconfig log: Done.

@@ -1,0 +1,53 @@
+From e2bba019451770372b51b1eabcea078454d4de38 Mon Sep 17 00:00:00 2001
+From: Christian Stewart <christian at paral.in>
+Date: Fri, 7 Dec 2018 00:16:42 -0800
+Subject: [PATCH 1/2] Remove quirks in autotools setup process
+
+The autogen.sh script ordinarily creates the gtk-doc.make file. The configure.ac
+file has an error, the po/Makefile.in is written twice in the array, which
+causes a configure-time error. This patch creates the gtk-doc.make file and
+removes the duplicate makefile array entry.
+
+Signed-off-by: Christian Stewart <christian at paral.in>
+---
+ .gitignore   | 1 -
+ configure.ac | 1 -
+ gtk-doc.make | 2 ++
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 gtk-doc.make
+
+diff --git a/.gitignore b/.gitignore
+index 7d643205..310c332d 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -29,7 +29,6 @@ missing
+ stamp-h1
+ config.h.in
+ stamp-*
+-gtk-doc.make
+ flatpak
+ flatpak-*.tar.xz
+ flatpak-session-helper
+diff --git a/configure.ac b/configure.ac
+index 91f9b826..21f3cf38 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -436,7 +436,6 @@ flatpak.pc
+ common/flatpak-version-macros.h
+ doc/reference/version.xml
+ doc/flatpak-docs.xml
+-po/Makefile.in
+ ])
+ AC_OUTPUT
+ 
+diff --git a/gtk-doc.make b/gtk-doc.make
+new file mode 100644
+index 00000000..14f18fd4
+--- /dev/null
++++ b/gtk-doc.make
+@@ -0,0 +1,2 @@
++EXTRA_DIST =
++CLEANFILES =
+-- 
+2.18.1
+
