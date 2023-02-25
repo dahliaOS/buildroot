@@ -76,4 +76,4 @@ Copyright @ 2019-2023 - The dahliaOS Authors - contact@dahliaos.io
 
 Copyright @ 2017 - Auke Willem Oosterhoff and [Advanced Climate Systems](https://acs-buildings.com/).
 
-This project is licensed under the [Mozila Public License](/LICENSE)
+This project is licensed under the [Mozilla Public License](/LICENSE)
