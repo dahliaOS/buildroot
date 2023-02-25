@@ -74,6 +74,6 @@ If you're wondering how to contribute to the project, please refer to [CONTRIBUT
 
 Copyright @ 2019-2023 - The dahliaOS Authors - contact@dahliaos.io
 
-Copyright @ 2017 - Auke Willem Oosterhoff and [Advanced Climate Systems][http://advancedclimate.nl/].
+Copyright @ 2017 - Auke Willem Oosterhoff and [Advanced Climate Systems](https://advancedclimate.nl).
 
 This project is licensed under the [Mozila Public License](/LICENSE)
