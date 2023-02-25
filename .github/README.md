@@ -35,15 +35,15 @@ build cache, cross compiler and build results.
 
 After that we can use buildroot like this:
 
-- ```./build make menuconfig``` to configure the build settings
-- ```./build make linux-menuconfig``` to configure the Linux kernel
-- ```./build make``` to compile the image, which can be found on the host machine in ```/images``` 
+- ```sudo ./build make menuconfig``` to configure the build settings
+- ```sudo ./build make linux-menuconfig``` to configure the Linux kernel
+- ```sudo ./build make``` to compile the image, which can be found on the host machine in ```/images``` 
 
 ## Build and reload
 
 To compile and run the base dahliaOS toolchain, use:
 
-- ```./build make&&qemu-system-x86_64 --enable-kvm -m 4096 -cdrom images/rootfs.iso9660&&cp images/rootfs.iso9660 images/rootfs.iso```
+- ```sudo ./build make&&qemu-system-x86_64 --enable-kvm -m 4096 -cdrom images/rootfs.iso9660&&cp images/rootfs.iso9660 images/rootfs.iso```
 
 ## Requirements
 
