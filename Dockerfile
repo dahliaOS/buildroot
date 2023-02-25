@@ -81,4 +81,8 @@ RUN touch kernel.config
 VOLUME /root/buildroot/dl
 VOLUME /buildroot_output
 
+# copy the config also to /buildroot_output because it will use that config to build
+
+COPY add/.config /buildroot_output/
+
 RUN ["/bin/bash"]
