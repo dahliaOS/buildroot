@@ -8,7 +8,6 @@ RUN apt-get update && \
     bash \
     bc \
     binutils \
-    build-essential \
     bzip2 \
     cpio \
     g++ \
@@ -25,6 +24,7 @@ RUN apt-get update && \
     patch \
     perl \
     python3 \
+    python3-dev \
     rsync \
     sed \
     tar \
@@ -46,7 +46,9 @@ RUN apt-get update && \
     gobject-introspection \
     cmake \
     ninja-build \
-    nano
+    nano \
+    glslang-tools \
+    libxml2-dev
 
 # Sometimes Buildroot need proper locale, e.g. when using a toolchain
 # based on glibc.
@@ -56,7 +58,7 @@ RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=master /root/
 
 # install flutter/dart
 
-RUN cd /var/lib; git clone https://github.com/flutter/flutter.git; chmod -R 777 /var/lib/flutter/
+RUN git clone https://github.com/flutter/flutter.git /var/lib/flutter/; chmod -R 777 /var/lib/flutter/
 RUN ln -s /var/lib/flutter/bin/flutter /usr/bin/flutter; ln -s /var/lib/flutter/bin/dart /usr/bin/dart
 RUN flutter config --enable-linux-desktop
 

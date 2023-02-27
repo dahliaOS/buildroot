@@ -61,6 +61,11 @@ I am sure a Threadripper or a newer Xeon CPU could easily handle compiling.
 
 - If you are using a laptop, make sure that you are aware of its temperature, some laptops easily heat up to 93-100c when compiling.
 
+## todo
+
+- Add surface touchscreen patches to kernel via buildroot https://github.com/linux-surface/linux-surface
+- Add nvidia driver in buildroot config
+
 ## Contribute
 
 If you're wondering how to contribute to the project, please refer to [CONTRIBUTING.md](../CONTRIBUTING.md)

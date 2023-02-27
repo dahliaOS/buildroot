@@ -24,12 +24,11 @@
 # ./run.sh make
 set -e
 
-echo "it has ran!"
-
 OUTPUT_DIR=/buildroot_output
 BUILDROOT_DIR=/root/buildroot
 
 DOCKER_RUN="docker run
+    --security-opt seccomp=unconfined
     --rm
     -ti
     --volumes-from buildroot_output
@@ -43,7 +42,6 @@ make() {
     echo "make O=$OUTPUT_DIR"
 }
 
-echo $DOCKER_RUN
 if [ "$1" == "make" ]; then
     eval $DOCKER_RUN $(make) ${@:2}
 else
