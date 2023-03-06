@@ -10,25 +10,40 @@
 - Buildroot is a simple, efficient and easy-to-use tool to generate embedded Linux systems through cross-compilation
 - This tool compiles dahliaOS Linux-based builds
 
-## Required packages
-- syslinux-utils
-- ccd2iso
-- docbook-xsl
-- clang
+This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://github.com/AdvancedClimateSystems/docker-buildroot).
+
+## install docker
+- We use docker so that we don't have to install all sorts of packages. Everything is already included in this docker image.
+
+- You can find the how to install docker [here](https://docs.docker.com/get-docker/)
 
 ## Usage
 
-- ```make menuconfig``` to configure the build settings
-- ```make linux-menuconfig``` to configure the Linux kernel
-- ```make``` to compile the image, which can be found under ```output/images```
+First we have to build the docker image.
+``` shell
+sudo docker build -t "dahlia/buildroot:latest" .
+```
 
-Files can be inserted into the image using the ```output/target``` directory
+Now we need to setup buildroot's volumes.
+``` shell
+$ docker run -i --name buildroot_output dahlia/buildroot /bin/echo "Data only."
+```
+
+This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
+Buildroot downloads all data to the first volume, the last volume is used as
+build cache, cross compiler and build results.
+
+After that we can use buildroot like this:
+
+- ```sudo ./build make menuconfig``` to configure the build settings
+- ```sudo ./build make linux-menuconfig``` to configure the Linux kernel
+- ```sudo ./build make``` to compile the image, which can be found on the host machine in ```/images``` 
 
 ## Build and reload
 
 To compile and run the base dahliaOS toolchain, use:
 
-- ```make&&qemu-system-x86_64 --enable-kvm -m 4096 -cdrom output/images/rootfs.iso9660&&cp output/images/rootfs.iso9660 output/images/rootfs.iso```
+- ```sudo ./build make&&qemu-system-x86_64 --enable-kvm -m 4096 -cdrom images/rootfs.iso9660&&cp images/rootfs.iso9660 images/rootfs.iso```
 
 ## Requirements
 
@@ -46,6 +61,11 @@ I am sure a Threadripper or a newer Xeon CPU could easily handle compiling.
 
 - If you are using a laptop, make sure that you are aware of its temperature, some laptops easily heat up to 93-100c when compiling.
 
+## todo
+
+- Add surface touchscreen patches to kernel via buildroot https://github.com/linux-surface/linux-surface
+- Add nvidia driver in buildroot config
+
 ## Contribute
 
 If you're wondering how to contribute to the project, please refer to [CONTRIBUTING.md](../CONTRIBUTING.md)
@@ -57,6 +77,8 @@ If you're wondering how to contribute to the project, please refer to [CONTRIBUT
   <img width="30%" src="https://github.com/dahliaOS/brand/blob/main/dahliaOS/logotype/svg/logotype-light.svg#gh-light-mode-only"/>
 </p>
 
-Copyright @ 2019-2022 - The dahliaOS Authors - contact@dahliaos.io
+Copyright @ 2019-2023 - The dahliaOS Authors - contact@dahliaos.io
 
-This project is licensed under the [Apache 2.0 license](/LICENSE)
+Copyright @ 2017 - Auke Willem Oosterhoff and [Advanced Climate Systems](https://acs-buildings.com/).
+
+This project is licensed under the [Mozilla Public License](/LICENSE)

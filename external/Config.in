@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL/package/python-pip/Config.in"
+source "$BR2_EXTERNAL/package/python-wheel/Config.in"

@@ -1,1 +1,0 @@
-Terminal on pangolin crashes the display, the terminal sources the profile, killing the connection and starting a new display. Make pangolin launch somehow else, or fix Xorg's init so that you can get to a display manager/terminal without any issues. Make sure that it runs the xinitrc file or some sort of pre-login thing
