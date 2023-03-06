@@ -21,12 +21,12 @@ This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://gi
 
 First we have to build the docker image.
 ``` shell
-sudo docker build -t "dahlia/buildroot:latest" .
+sudo docker build -t "dahliaos/buildroot:latest" .
 ```
 
 Now we need to setup buildroot's volumes.
 ``` shell
-$ docker run -i --name buildroot_output dahlia/buildroot /bin/echo "Data only."
+$ docker run -i --name buildroot_output dahliaos/buildroot /bin/echo "Data only."
 ```
 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
