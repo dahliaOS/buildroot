@@ -1,6 +1,5 @@
 name: Build and deploy docker image
 
-  
 on:
   push:
     branches: [ "master" ]
@@ -9,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-    publish-dahliaos-buildroot-image:
+    Build and publish dahliaOS buildroot docker image:
         runs-on: ubuntu-latest
         steps:
           - name: 'Checkout GitHub Action'
@@ -24,6 +23,6 @@ jobs:
               
           - name: 'Build Docker Image'
             run: |
-             docker build . --tag ghcr.io/dahliaos/buildroot:$(date +%y%m%d)
-             docker run ghcr.io/dahliaos/buildroot:$(date +%y%m%d)
-             docker push ghcr.io/dahliaos/buildroot:$(date +%y%m%d)
+             docker build . --tag ghcr.io/dahliaos/buildroot:latest
+             docker run ghcr.io/dahliaos/buildroot:latest
+             docker push ghcr.io/dahliaos/buildroot:latest
