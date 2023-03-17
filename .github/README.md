@@ -69,7 +69,7 @@ We are sure a Threadripper or a newer Xeon CPU could easily handle compiling.
 
 - [ ] Add the Surface touchscreen patches to the kernel via Buildroot: https://github.com/linux-surface/linux-surface
 
-- [ ] Add the Nvidia driver in the Buildroot config
+- [x] Add the Nvidia driver in the Buildroot config
 
 ## Contribute
 
