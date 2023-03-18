@@ -29,7 +29,7 @@ docker pull ghcr.io/dahliaos/buildroot:latest
 2. Setup Buildroot's volumes
 
 ``` shell
-docker run -i --name buildroot_output dahliaos/buildroot /bin/echo "Data only."
+docker run -i --name buildroot_output ghcr.io/dahliaos/buildroot /bin/echo "Data only."
 ```
 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
