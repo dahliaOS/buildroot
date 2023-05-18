@@ -67,6 +67,8 @@ We are sure a Threadripper or a newer Xeon CPU could easily handle compiling.
 
 ## To do
 
+- [ ] Add flatpak  
+  
 - [ ] Add the Surface touchscreen patches to the kernel via Buildroot: https://github.com/linux-surface/linux-surface
 
 - [x] Add the Nvidia driver in the Buildroot config
