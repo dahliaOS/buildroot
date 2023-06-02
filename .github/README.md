@@ -31,7 +31,13 @@ docker pull ghcr.io/dahliaos/buildroot:latest
 ``` shell
 docker run -i --name buildroot_output ghcr.io/dahliaos/buildroot /bin/echo "Data only."
 ```
-
+  
+3. Clone the buildroot repo.
+  
+``` shell
+git clone https://github.com/dahliaOS/buildroot.git && cd buildroot
+``` 
+ 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
 Buildroot downloads all data to the first volume, the last volume contains the build cache, the cross compiler and the build results.
 
