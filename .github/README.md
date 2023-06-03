@@ -43,6 +43,8 @@ Buildroot downloads all data to the first volume, the last volume contains the b
 
 3. Run:
 
+The **build** script is used to connect to the docker container and to pass commands to it.
+  
 - ```sudo ./build make menuconfig``` to configure the build settings
 - ```sudo ./build make linux-menuconfig``` to configure the Linux kernel
 - ```sudo ./build make``` to compile the image, which can be found on the host machine in ```/images``` 
