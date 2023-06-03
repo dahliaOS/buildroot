@@ -57,8 +57,7 @@ RUN locale-gen en_US.utf8
 RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=master /root/buildroot
 
 # install flutter/dart
-
-RUN git clone https://github.com/flutter/flutter.git /var/lib/flutter/; chmod -R 777 /var/lib/flutter/
+RUN git clone https://github.com/flutter/flutter.git --depth=1 /var/lib/flutter/; chmod -R 777 /var/lib/flutter/
 RUN ln -s /var/lib/flutter/bin/flutter /usr/bin/flutter; ln -s /var/lib/flutter/bin/dart /usr/bin/dart
 RUN flutter config --enable-linux-desktop
 
