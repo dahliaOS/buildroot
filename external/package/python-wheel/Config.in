@@ -1,7 +1,0 @@
-config BR2_PACKAGE_PYTHON_WHEEL
-    bool "python-wheel"
-    depends on BR2_PACKAGE_PYTHON || BR_PACKAGE_PYTHON3
-    help
-      A built-package format for Python.
-
-      http://wheel.readthedocs.org/en/latest/

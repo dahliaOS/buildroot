@@ -1,9 +1,0 @@
-config BR2_PACKAGE_PYTHON_PIP
-    bool "python-pip"
-    select BR2_PACKAGE_PYTHON_PYEXPAT 
-    select BR2_PACKAGE_PYTHON_SETUPTOOLS
-    depends on BR2_PACKAGE_PYTHON
-    help
-      The PyPA recommended tool for installing Python packages.
-
-      https://pip.pypa.io/en/stable/index.html
