@@ -22,7 +22,11 @@ This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://gi
 
 ## Usage
 
-Soon
+1. Build dahliaOS WIP
+
+``` shell
+make build
+```
 
 ## Requirements
 
