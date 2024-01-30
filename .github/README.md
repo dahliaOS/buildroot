@@ -7,7 +7,7 @@
 
 # OS
 
-This is build system for dahliaOS. It is based on [Buildroot](https://buildroot.org/) and ran in a Docker container.
+This is the build system for dahliaOS. It is based on [Buildroot](https://buildroot.org/) and ran in a Docker container.
 
 This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://github.com/AdvancedClimateSystems/docker-buildroot).
 - Buildroot is a simple, efficient and easy-to-use tool to generate embedded Linux systems through cross-compilation.
