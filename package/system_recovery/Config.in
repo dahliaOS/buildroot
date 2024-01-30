@@ -1,6 +1,0 @@
-config BR2_PACKAGE_SYSTEM_RECOVERY
-        bool "system_recovery"
-        help
-          Recovery shell for dahliaOS. Should not be included in the standard desktop release. This package should only be used with the dahliaOS_recovery_x64_defconfig board configuration.
-
-	  https://github.com/dahliaOS/system_recovery

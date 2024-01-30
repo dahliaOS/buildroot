@@ -20,43 +20,6 @@ This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://gi
 
 ## Usage
 
-1. Get the Docker image
-
-``` shell
-docker pull ghcr.io/dahliaos/buildroot:latest
-```
-
-2. Setup Buildroot's volumes
-
-``` shell
-docker run -i --name buildroot_output ghcr.io/dahliaos/buildroot /bin/echo "Data only."
-```
-  
-3. Clone the buildroot repo.
-  
-``` shell
-git clone https://github.com/dahliaOS/buildroot.git && cd buildroot
-``` 
- 
-This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
-Buildroot downloads all data to the first volume, the last volume contains the build cache, the cross compiler and the build results.
-
-3. Run:
-
-The **build** script is used to connect to the docker container and to pass commands to it.
-  
-- ```sudo ./build make menuconfig``` to configure the build settings
-- ```sudo ./build make linux-menuconfig``` to configure the Linux kernel
-- ```sudo ./build make``` to compile the image, which can be found on the host machine in ```/images``` 
-
-## Build and reload
-
-To compile and run the base dahliaOS toolchain, use:
-
-```sh
-sudo ./build make&&qemu-system-x86_64 --enable-kvm -m 4096 -cdrom images/rootfs.iso9660&&cp images/rootfs.iso9660 images/rootfs.iso
-```
-
 ## Requirements
 
 It is recommended to have at miniumum an Ethernet connection (directly to thr router), a dual-core x86 CPU and at least 4GB of RAM when compiling.
@@ -92,7 +55,7 @@ If you're wondering how to contribute to the project, please refer to [CONTRIBUT
   <img width="30%" src="https://github.com/dahliaOS/brand/blob/main/dahliaOS/logotype/svg/logotype-light.svg#gh-light-mode-only"/>
 </p>
 
-Copyright @ 2019-2023 - The dahliaOS Authors - contact@dahliaos.io
+Copyright @ 2019-2024 - The dahliaOS Authors - contact@dahliaos.io
 
 Copyright @ 2017 - Auke Willem Oosterhoff and [Advanced Climate Systems](https://acs-buildings.com/).
 
