@@ -5,12 +5,14 @@
 <a href="https://dahliaos.io/donate">Donate</a> •
 <a href="https://docs.dahliaos.io">Documentation</a>
 
-# Buildroot
+# OS
 
+This is build system for dahliaOS. It is based on [Buildroot](https://buildroot.org/) and ran in a Docker container.
+
+This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://github.com/AdvancedClimateSystems/docker-buildroot).
 - Buildroot is a simple, efficient and easy-to-use tool to generate embedded Linux systems through cross-compilation.
 - This tool compiles dahliaOS Linux-based builds.
 
-This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://github.com/AdvancedClimateSystems/docker-buildroot).
 
 ## Install Docker
 
@@ -19,6 +21,8 @@ This project is a fork from [AdvancedClimateSystems/docker-buildroot](https://gi
 - You can find Docker installation instructions [here](https://docs.docker.com/get-docker/).
 
 ## Usage
+
+Soon
 
 ## Requirements
 
@@ -42,7 +46,9 @@ We are sure a Threadripper or a newer Xeon CPU could easily handle compiling.
   
 - [ ] Add the Surface touchscreen patches to the kernel via Buildroot: https://github.com/linux-surface/linux-surface
 
-- [x] Add the Nvidia driver in the Buildroot config
+- [x] Add Nvidia support 
+
+- [x] Add AMD support
 
 ## Contribute
 
